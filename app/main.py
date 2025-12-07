@@ -50,6 +50,7 @@ def save_containers_to_db(containers: List[ContainerDTO]) -> None:
 
         # pokud bylo všechno v pořádku, tak změny commitneme
         session.commit()
+        
 
     except Exception as e:
         # pokud se něco pokazí, vrátíme změny zpět (rollback)

@@ -8,7 +8,7 @@ class Container(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    cpu_usager = Column(BigInteger, nullable=False)
+    cpu_usage = Column(BigInteger, nullable=False)
     memory_usage = Column(BigInteger, nullable=False)
     created_at_utc = Column(BigInteger, nullable=False)
     status = Column(String, nullable=False)
