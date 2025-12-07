@@ -1,4 +1,4 @@
-from sqlalchemy import Column, integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, BigInteger
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
@@ -10,7 +10,7 @@ class Container(Base):
     name = Column(String, nullable=False)
     cpu_usager = Column(BigInteger, nullable=False)
     memory_usage = Column(BigInteger, nullable=False)
-    created_at_utc = Column(DateTime, nullable=False)
+    created_at_utc = Column(BigInteger, nullable=False)
     status = Column(String, nullable=False)
 
     ips = relationship(
@@ -28,5 +28,4 @@ class ContainerIP(Base):
     family = Column(String, nullable=True)
 
     container = relationship("Container", back_populates="ips")
-    
-      
+
