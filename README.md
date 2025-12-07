@@ -57,3 +57,11 @@ Async varianta využívá:
 - await session.flush()
 - await session.commit()
 
+## Docker deployment
+
+Pro plně dockerizované spuštění aplikace (PostgreSQL + Python app) stačí:
+
+```bash
+docker compose up --build
+
+

@@ -5,20 +5,27 @@ services:
     image: postgres:16
     container_name: lxc_postgres
     restart: unless-stopped
-
-    # Nastavení uživatele, hesla a názvu databáze
     environment:
       POSTGRES_USER: lxc_user
       POSTGRES_PASSWORD: lxc_pass
       POSTGRES_DB: lxc_db
-
-    # Uloží data mimo kontejner (aby nezmizela po smazání containeru)
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-    # Otevřeme port 5432 do tvého PC (host)
     ports:
       - "5432:5432"
+
+  app:
+    build: .
+    container_name: lxc_app
+    depends_on:
+      - db
+    environment:
+      # uvnitř docker sítě se DB jmenuje podle služby = "db"
+      DATABASE_URL: postgresql://lxc_user:lxc_pass@db:5432/lxc_db
+    # pokud chceš, aby se app spustila hned při "up":
+    command: ["python", "-m", "app.async_main"]
+    # volitelně: logy na stdout
+    restart: "no"
 
 volumes:
   pgdata:
