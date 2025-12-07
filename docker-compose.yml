@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: lxc_postgres
+    restart: unless-stopped
+
+    # Nastavení uživatele, hesla a názvu databáze
+    environment:
+      POSTGRES_USER: lxc_user
+      POSTGRES_PASSWORD: lxc_pass
+      POSTGRES_DB: lxc_db
+
+    # Uloží data mimo kontejner (aby nezmizela po smazání containeru)
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+    # Otevřeme port 5432 do tvého PC (host)
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
