@@ -10,3 +10,6 @@ DB_URL = os.getenv(
     "postgresql://lxc_user:lxc_pass@localhost:5432/lxc_db"
 )
 
+
+# Async URL pro SQLAlchemy + asyncpg
+ASYNC_DB_URL = DB_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
