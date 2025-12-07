@@ -43,3 +43,17 @@ Uložení kontejnerů do PostgreSQL
 
 S databází běžící v Dockeru:
 bash přikaz: py -m app.main
+
+## Asynchronní varianta
+
+Projekt obsahuje i asynchronní verzi ukládání dat do PostgreSQL (SQLAlchemy asyncio + asyncpg).
+
+Spuštění: py -m app.async_main
+
+
+Async varianta využívá:
+- create_async_engine
+- async_sessionmaker
+- await session.flush()
+- await session.commit()
+
