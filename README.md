@@ -16,11 +16,11 @@ psycopg2-binary – PostgreSQL driver
 Struktura projektu: 
 
 app/
-  ├── parser.py        # Parsování JSON → ContainerDTO
-  ├── schemas.py       # Pydantic DTO modely
-  ├── models.py        # SQLAlchemy tabulky (containers + container_ips)
-  ├── db.py            # DB engine + session
-  └── main.py          # Uložení naparsovaných dat do PostgreSQL
+ parser.py        # Parsování JSON → ContainerDTO
+ schemas.py       # Pydantic DTO modely
+ models.py        # SQLAlchemy tabulky (containers + container_ips)
+ db.py            # DB engine + session
+ main.py          # Uložení naparsovaných dat do PostgreSQL
 docker-compose.yml      # Postgres databáze
 requirements.txt        # Python závislosti
 sample-data.json        # Vstupní data (LXC kontejnery)
